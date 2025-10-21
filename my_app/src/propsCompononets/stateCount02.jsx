@@ -1,0 +1,22 @@
+// useState() 훅(hook)을 import함
+import React,{useState} from "react";
+// 한번에 함수 생성하면서 export까지 완성
+export default function Counter02(){
+// useState()훅을 이용하여 변수 지정
+// const [이름, set이름] = useState(초기값)
+    const [count, setCount]=useState(0) // 초기값 0 지정
+// 함수로 작성하기 : count되는 함수
+    const countPlus=(()=>setCount(count+1))
+
+    // function countPlus(){
+    //     setCount(count+1)
+    // }
+
+    return(
+        <>
+            <p>카운트: {count}</p>
+            {/* onClick="count()" */}
+            <button onClick={countPlus}>증가</button>
+        </>
+    )
+}
