@@ -31,6 +31,24 @@ import Product03 from './propsCompononets/Props03'
 import Counter01 from './propsCompononets/stateCount'
 import Counter02 from './propsCompononets/stateCount02'
 import Alert from './propsCompononets/Props06'
+import Exstate01 from './stateComponents/Ex01'
+import Exstate02 from './stateComponents/Ex02'
+import Exstate03 from './stateComponents/Ex03'
+import Exstate04 from './stateComponents/Ex04'
+import Exstate05 from './stateComponents/Ex05'
+import Exstate06 from './stateComponents/Ex06'
+import Exstate07 from './stateComponents/Ex07'
+import Exstate08 from './stateComponents/Ex08'
+import Exstate09 from './stateComponents/Ex09'
+import Exstate10 from './stateComponents/Ex10'
+import Exstate11 from './stateComponents/Ex11'
+import Test from './stateComponents/test'
+import Exstate13 from './stateComponents/Ex13'
+import Exstate14 from './stateComponents/Ex14'
+import Exstate15 from './stateComponents/Ex15'
+import Exstate16 from './stateComponents/Ex16'
+import Exstate17 from './stateComponents/Ex17'
+import Exstate18 from './stateComponents/Ex18'
 
 
 // -- 컴포넌트의 기본구조 --
@@ -127,10 +145,10 @@ const btnClick=()=>{
         <Product03 name='마우스' price={15000}/> */}
 
         {/* 문제 06 */}
-        <Alert type='error' msg='오류발생!'/>
+        {/* <Alert type='error' msg='오류발생!'/>
         <Alert type='success' msg='성공'/>
         <Alert type='info' msg='알림'/>
-        <Alert type='warn' msg='경고'/>
+        <Alert type='warn' msg='경고'/> */}
 
 
         {/* javaScript의 class를 React는 className로 사용 !!!!!!!!!!!!!! */}
@@ -200,6 +218,24 @@ const btnClick=()=>{
         {/* <Welcome name='개나리'/> */}
         {/* <Counter01/> */}
         {/* <Counter02/> */}
+        {/* <Exstate01/> */}
+        {/* <Exstate02/> */}
+        {/* <Exstate03/> */}
+        {/* <Exstate04/> */}
+        {/* <Exstate05/> */}
+        {/* <Exstate06/> */}
+        {/* <Exstate07/> */}
+        {/* <Exstate08/> */}
+        {/* <Exstate09/> */}
+        {/* <Exstate10/> */}
+        {/* <Exstate11/> */}
+        {/* <Test/> */}
+        {/* <Exstate13/> */}
+        <Exstate14/>
+        <Exstate15/>
+        <Exstate16/>
+        <Exstate17/>
+        <Exstate18/>
     </>
   )
 }
