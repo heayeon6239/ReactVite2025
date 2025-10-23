@@ -30,6 +30,14 @@ export default function CommentBoard(){
         setComments(commentsCopy);
     }
     
+    // -  좋아요 증가 함수
+    const plusLike=(index)=>{
+        let commentsCopy=[...comments];
+        // let likeNum=commentsCopy[index].like+1  ???????????;
+        commentsCopy[index].like+=1;
+        setComments(commentsCopy);
+    }
+
     console.log(comments);
     return(
         <>
@@ -37,7 +45,9 @@ export default function CommentBoard(){
                 input_text={inputText}
                 add_com={addCom}
                 commentss={comments}
-                del_com={()=>delCom(index)}
+                del_com={delCom}
+                plus_like={plusLike}
+                // plus_likeNum={likeNum}
             />
         </>
     )
@@ -55,7 +65,8 @@ function CommentItem(props){
                 {props.commentss.map((item,id)=>(
                     <li key={id}>
                         <p>{item.text}</p>
-                        <span>🎅</span>
+                        <span onClick={props.plus_like}>🎅{item.like}</span>
+                        {/* <span onClick={props.plus_like}>🎅{props.plus_likeNum}</span> */}
                         <button onClick={props.del_com}>삭제</button>
                     </li>
                 ))}

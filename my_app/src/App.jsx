@@ -52,7 +52,8 @@ import image01 from '../public/images/image01.png'
 // import Blog from './stateComponents/Blog'
 // import MovieReview from './components/movie/movieReview'
 // import ShoppingList from './components/shopping/shopping'
-import CommentBoard from './components/commentBoard/commentBoard'
+// import CommentBoard from './components/commentBoard/commentBoard'
+import ScoreManager from './components/student/Student'
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -242,7 +243,8 @@ const btnClick=()=>{
         {/* <Blog/> */}
         {/* <MovieReview/> */}
         {/* <ShoppingList/> */}
-        <CommentBoard/>
+        {/* <CommentBoard/> */}
+        <ScoreManager/>
     </>
   )
 }
