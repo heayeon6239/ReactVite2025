@@ -53,7 +53,13 @@ import image01 from '../public/images/image01.png'
 // import MovieReview from './components/movie/movieReview'
 // import ShoppingList from './components/shopping/shopping'
 // import CommentBoard from './components/commentBoard/commentBoard'
-import ScoreManager from './components/student/Student'
+// import ScoreManager from './components/student/Student'
+// import ModalChange from './stateUI/uiTest01'
+// import LoginView from './stateUI/uiTest02'
+// import PromptChange from './stateUI/uiTest03'
+// import Parent from './stateUI/uiTest04'
+// import AuthApp from './stateUI/member/AuthApp'
+import MovieApp from './stateUI/movie/MovieApp'
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -244,7 +250,13 @@ const btnClick=()=>{
         {/* <MovieReview/> */}
         {/* <ShoppingList/> */}
         {/* <CommentBoard/> */}
-        <ScoreManager/>
+        {/* <ScoreManager/> */}
+        {/* <ModalChange/> */}
+        {/* <LoginView/> */}
+        {/* <PromptChange/> */}
+        {/* <Parent/> */}
+        {/* <AuthApp/> */}
+        <MovieApp/>
     </>
   )
 }

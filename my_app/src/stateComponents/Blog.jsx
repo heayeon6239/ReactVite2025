@@ -7,6 +7,10 @@ export default function Blog(){
     const [post,setPost]=useState(['남자코트 추천', '강남 우동맛집', '파이썬독학']);
     const [like,setLike]=useState([0,0,0]);
     const [inputValue,setInputValue]=useState('');
+    // 모달 창이 안보이는 상태를 false로 지정
+    const [modalOpen,setModalOpen]=useState(false);
+    // 선택된 글의 인덱스 지정
+    const [selectedIndex,setSelectedIndex]=useState(null);
 
     // 실행 로직 함수 -------------------------------------------------------
     
@@ -83,7 +87,8 @@ export default function Blog(){
 
                     // 배열이라서 index 넣음
                     <li key={index}> 
-                        <span>{post}</span>
+                        {/*  함수 2개 넣는 방법 !!!!! */}
+                        <span onClick={()=>{setModalOpen(true);setSelectedIndex(index)}}>{post}</span>
                         {/* post.map((post,index)라고 넣어서 addLike(index)라고 작성
                                              i   라고 한다면           i   라고 작성 */}
                         <span onClick={()=>addLike(index)}>👍</span>
@@ -96,6 +101,56 @@ export default function Blog(){
             <input type="text" value={inputValue} placeholder="여기에 입력" onChange={(e)=>setInputValue(e.target.value)}></input>
             <button onClick={addPost}>글발행</button>
 
+            {/* 자식한테 보내는 것 : 글제목, 글 인덱스, 모달닫기함수, color */}
+            {modalOpen && <Modal 
+            color={'lightgray'}
+            title={post}
+            setPost={setPost}
+            index={selectedIndex}
+            // modalOpen을 그냥 자식한테 보내는게 아니라
+            // 함수를 넣어서(flase값을 넣은) 바로 보냄 !!!!
+            onClose={()=>setModalOpen(false)}
+            />}
+
+        </>
+    )
+}
+
+// 자식
+function Modal(props){
+    // 업데이트 함수 필요
+    // 업데이트 조건 => 얕은 복사
+
+    // 1. props.title를 얕은 복사함
+    //    let titleCopy=[...props.title]
+
+    // 2. propmt("새 제목을 입력하세요",~~~~)
+    //    titleCopy[props.index] = propmt("새 제목을 입력하세요",~~~~)
+
+    // 3. titleCopy[props.index] => titleCopy[0] => 남자코트 추천
+
+    // 4. 수정한 글제목을 업데이트해야함
+    //    props.setPost(titleCopy)
+
+    const update=()=>{
+        let titleCopy=[...props.title]
+        //                                           입력값이거나,                              null이면 기존값 !!!!
+        titleCopy[props.index]=prompt("새 글 제목을 입력하세요.",titleCopy[props.index]) || titleCopy[props.index]
+        // if(titleCopy[props.index]=prompt("새 글 제목을 입력하세요.",titleCopy[props.index])){
+
+        // }
+        props.setPost(titleCopy);
+    }
+
+    return(
+        <>
+            <div className="modal" style={{backgroundColor:props.color}}>
+                <h4>{props.title[props.index]}</h4>
+                <p>날짜: 11월 1일</p>
+                <p>상세내용: 여기에 내용을 넣어보세요</p>
+                <button onClick={update}>글수정</button>
+                <button onClick={props.onClose}>닫기</button>
+            </div>
         </>
     )
 }

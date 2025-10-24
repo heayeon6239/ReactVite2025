@@ -55,6 +55,8 @@ export default function CommentBoard(){
 
 // 자식
 function CommentItem(props){
+
+    console.log(props.comments);
     return(
         <>
             <h2>🚑댓글게시판</h2>
@@ -62,7 +64,7 @@ function CommentItem(props){
             <button onClick={props.add_com}>등록</button>
 
             <ul>
-                {props.commentss.map((item,id)=>(
+                {props.comments.map((item,id)=>(
                     <li key={id}>
                         <p>{item.text}</p>
                         <span onClick={props.plus_like}>🎅{item.like}</span>
