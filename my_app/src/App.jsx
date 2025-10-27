@@ -8,40 +8,6 @@ import './App.css'
 // 00 이미지를 하나하나 import해서 개별로 가져올 수 있음
 // public폴더의 이미지 파일은 import하지 않아도 사용 가능
 import image01 from '../public/images/image01.png'
-// import Ex01 from './components/Ex01'
-// import Ex02 from './components/Ex02'
-// import Ex03 from './components/Ex03'
-// import Ex04 from './components/Ex04'
-// import Ex05 from './components/Ex05'
-// import Ex06 from './components/Ex06'
-// import Ex07 from './components/Ex07'
-// import Ex08 from './components/Ex08'
-// import Ex09 from './components/Ex09'
-// import Ex10 from './components/Ex10'
-// import Ex11 from './components/Ex11'
-// import Ex12 from './components/Ex12'
-// import Ex13 from './components/Ex13'
-// import Parent from './propsCompononets/parent'
-// import Parent02 from './propsCompononets/welcome'
-// import Parent03 from './propsCompononets/profile'
-// import Parent04 from './propsCompononets/prEx'
-// import Welcome from './propsCompononets/Props01'
-// import UserCard02 from './propsCompononets/Props02'
-// import Product03 from './propsCompononets/Props03'
-// import Counter01 from './propsCompononets/stateCount'
-// import Counter02 from './propsCompononets/stateCount02'
-// import Alert from './propsCompononets/Props06'
-// import Exstate01 from './stateComponents/Ex01'
-// import Exstate02 from './stateComponents/Ex02'
-// import Exstate03 from './stateComponents/Ex03'
-// import Exstate04 from './stateComponents/Ex04'
-// import Exstate05 from './stateComponents/Ex05'
-// import Exstate06 from './stateComponents/Ex06'
-// import Exstate07 from './stateComponents/Ex07'
-// import Exstate08 from './stateComponents/Ex08'
-// import Exstate09 from './stateComponents/Ex09'
-// import Exstate10 from './stateComponents/Ex10'
-// import Exstate11 from './stateComponents/Ex11'
 // import Test from './stateComponents/test'
 // import Exstate13 from './stateComponents/Ex13'
 // import Exstate14 from './stateComponents/Ex14'
@@ -59,7 +25,11 @@ import image01 from '../public/images/image01.png'
 // import PromptChange from './stateUI/uiTest03'
 // import Parent from './stateUI/uiTest04'
 // import AuthApp from './stateUI/member/AuthApp'
-import MovieApp from './stateUI/movie/MovieApp'
+// import MovieApp from './stateUI/movie/MovieApp'
+// import BlogC from './stateComponents/Blog/blogc'
+// import NewMovie from './stateUI/NewMovie/MovieApp'
+// import ShopApp from './stateUI/Shop/ShopApp'
+import FoodApp from './stateUI/food/FoodApp'
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -256,7 +226,11 @@ const btnClick=()=>{
         {/* <PromptChange/> */}
         {/* <Parent/> */}
         {/* <AuthApp/> */}
-        <MovieApp/>
+        {/* <MovieApp/> */}
+        {/* <BlogC/> */}
+        {/* <NewMovie/> */}
+        {/* <ShopApp/> */}
+        <FoodApp/>
     </>
   )
 }
