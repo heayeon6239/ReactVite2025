@@ -29,7 +29,11 @@ import image01 from '../public/images/image01.png'
 // import BlogC from './stateComponents/Blog/blogc'
 // import NewMovie from './stateUI/NewMovie/MovieApp'
 // import ShopApp from './stateUI/Shop/ShopApp'
-import FoodApp from './stateUI/food/FoodApp'
+// import FoodApp from './stateUI/food/FoodApp'
+// import Hover01 from './stateUI/hover01'
+// import Hover04 from './stateUI/hover04'
+// import Changeimg04 from './stateUI/Changeimg04'
+import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -230,7 +234,12 @@ const btnClick=()=>{
         {/* <BlogC/> */}
         {/* <NewMovie/> */}
         {/* <ShopApp/> */}
-        <FoodApp/>
+        {/* <FoodApp/> */}
+        {/* <Hover01/> */}
+        {/* <Hover04/> */}
+        {/* <Changeimg02/> */}
+        {/* <Changeimg04/> */}
+        <TableOrderApp/>
     </>
   )
 }

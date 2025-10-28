@@ -1,0 +1,37 @@
+*{
+    list-style: none;
+    box-sizing: border-box;
+}
+#root .all{
+    display: flex;
+    background-color: #e7e7e7 ;
+    width: 843px;
+    height: 525px;
+    margin: 0 auto;
+}
+
+#root .all .menuTab{
+    border:1px solid red;
+}
+#root .all .Menu{
+    max-height: 525px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border:1px solid red;
+     width: 700px;
+}
+
+#root .all .menu .menulist{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#root .all .menu .menulist li.menu_li{
+    width: 100px;
+    border:1px solid blue;
+}
+#root .all .menu .menulist .menu_li > img{
+    width: 100%;
+    border:1px solid blue;
+    /* height: 100px; */
+}
