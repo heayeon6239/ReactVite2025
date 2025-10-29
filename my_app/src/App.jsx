@@ -33,7 +33,9 @@ import image01 from '../public/images/image01.png'
 // import Hover01 from './stateUI/hover01'
 // import Hover04 from './stateUI/hover04'
 // import Changeimg04 from './stateUI/Changeimg04'
-import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
+// import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
+// import Eff03 from './Effect/Eff03'
+import Eff09 from './Effect/Eff09'
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -239,7 +241,9 @@ const btnClick=()=>{
         {/* <Hover04/> */}
         {/* <Changeimg02/> */}
         {/* <Changeimg04/> */}
-        <TableOrderApp/>
+        {/* <TableOrderApp/> */}
+        {/* <Eff03/> */}
+        <Eff09/>
     </>
   )
 }

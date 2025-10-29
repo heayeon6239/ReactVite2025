@@ -1,23 +1,71 @@
 *{
     list-style: none;
     box-sizing: border-box;
+    font-family: sans-serif;
+    color: #444;
 }
 #root .all{
     display: flex;
-    background-color: #e7e7e7 ;
+    background-color: #f9f9f9 ;
     width: 843px;
     height: 525px;
     margin: 0 auto;
+    position: relative;
 }
 
+/*  메뉴 탭 */
 #root .all .menuTab{
-    border:1px solid red;
+    /* border:1px solid rgb(104, 141, 61); */
+    background-color: #ededed;
+    width: 160px;
+    position: relative;
 }
+#root .all .menuTab ul{
+    padding: 0;
+    display: inline-block;
+    margin: 30px auto;
+    
+}
+#root .all .menuTab ul li{
+    width: 120px;
+    background-color: #fff;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+#root .all .menuTab ul li:hover{
+    color: rgb(133, 184, 74);
+    /* transform: scale(1.1); */
+}
+#root .all .menuTab ul li:focus{
+    
+}
+#root .all .menuTab button{
+    position: absolute;
+    bottom: 30px;
+    left: 17px;
+    width: 120px;
+    padding: 10px 10px;
+    background-color: #fff;
+    border: 1px solid #d7d7d6;
+}
+#root .all .menuTab button:hover{
+    border: 1px solid rgb(104, 141, 61);
+    color: rgb(104, 141, 61);
+}
+#root .all .menuTab button:focus{
+    outline: none;
+}
+
+/* 메뉴 리스트 */
 #root .all .Menu{
     max-height: 525px;
     overflow-y: auto;
     overflow-x: hidden;
-    border:1px solid red;
+    /* border:1px solid red; */
      width: 700px;
 }
 
@@ -34,4 +82,117 @@
     width: 100%;
     border:1px solid blue;
     /* height: 100px; */
+}
+
+/* 주문내역 모달창 */
+
+#root .all .modalOverlay{
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#root .all .modalOverlay .modal{
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    border-radius: 5px;
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#root .all .modalOverlay .modal::-webkit-scrollbar {
+  width: 6px;
+}
+#root .all .modalOverlay .modal::-webkit-scrollbar-thumb{
+  background-color: #fff;
+  border-radius: 3px;
+}
+#root .all .modalOverlay .modal >h2{
+    border-bottom: 2px solid rgb(100, 154, 38);
+    display: inline-block;
+    width: 30%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+#root .all .modalOverlay .modal >span{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+#root .all .modalOverlay .modal > button{
+    background-color: rgb(192, 192, 192);
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    padding: 0;
+    margin: 10px 0;
+}
+#root .all .modalOverlay .modal > button:focus{
+    outline: none;
+}
+#root .all .modalOverlay .modal .right button span{
+    color: #fff;
+}
+#root .all .modalOverlay .modal >p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #787878;
+    text-align: right;
+    margin: 15px 40px;
+}
+#root .all .modalOverlay .modal ul{
+    /* border:1px solid rgb(100, 154, 38);
+    border-left: none;
+    border-right: none; */
+    margin: 0 40px;
+    padding: 0;
+}
+#root .all .modalOverlay .modal ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px solid rgb(100, 154, 38);
+    padding: 0 15px;
+}
+#root .all .modalOverlay .modal ul li .left{
+    text-align: left;
+    font-size: 17px;
+}
+#root .all .modalOverlay .modal ul li .right{
+    display: flex;
+    gap: 5px;
+}
+#root .all .modalOverlay .modal ul li .left .left_title{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+#root .all .modalOverlay .modal ul li .right button{
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(133, 184, 74);
+}
+#root .all .modalOverlay .modal ul li .right button:focus{
+    outline: none;
+}
+#root .all .modalOverlay .modal ul li .right button:hover{
+    background-color: rgb(100, 154, 38);
+}
+#root .all .modalOverlay .modal ul li .right button > span{
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+#root .all .modalOverlay .modal ul li .right button .del{
+    font-size: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-bottom: 10px;
 }

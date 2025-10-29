@@ -8,17 +8,17 @@ export default function TableOrderApp(){
     // 메뉴 배열
     const [tableMenu]=useState([
         {id:1, name:'김햄찌아바타',img:'food01_01.jpg' ,price:9000, category:1},
-        {id:2, name:'치킨 치아바타',img:'food01_02.jpg' ,price:87000, category:1},
+        {id:2, name:'치킨 치아바타',img:'food01_02.jpg' ,price:8700, category:1},
         {id:3, name:'튜나 치아바타',img:'food01_03.jpg' ,price:9500, category:1},
         {id:4, name:'비프에그마요 치아바타',img:'food01_04.jpg' ,price:9000, category:1},
         {id:5, name:'바질연어 치아바타',img:'food01_05.jpg' ,price:10500, category:1},
         {id:6, name:'크런치비프 라이트랩',img:'food01_06.jpg' ,price:8500, category:1},
-        {id:7, name:'그라브락스 연어 포케볼',img:'food01_07.jpg' ,price:12000, category:1},
-        {id:8, name:'멕시칸 랩',img:'food01_08.jpg' ,price:8500, category:1},
-        {id:9, name:'칠리베이컨 포케볼',img:'food01_09.jpg' ,price:13000, category:1},
-        {id:10, name:'더블 치킨 파스타 박스',img:'food01_10.jpg' ,price:12500, category:1},
-        {id:11, name:'로스트닭다리살 샐러디',img:'food01_11.jpg' ,price:10500, category:1},
-        {id:12, name:'그라브락스 연어 샐러디',img:'food01_12.jpg' ,price:13500, category:1},
+        {id:7, name:'그라브락스 연어 포케볼',img:'food01_07.png' ,price:12000, category:1},
+        {id:8, name:'멕시칸 랩',img:'food01_08.png' ,price:8500, category:1},
+        {id:9, name:'칠리베이컨 포케볼',img:'food01_09.png' ,price:13000, category:1},
+        {id:10, name:'더블 치킨 파스타 박스',img:'food01_10.png' ,price:12500, category:1},
+        {id:11, name:'로스트닭다리살 샐러디',img:'food01_11.png' ,price:10500, category:1},
+        {id:12, name:'그라브락스 연어 샐러디',img:'food01_12.png' ,price:13500, category:1},
 
         {id:13, name:'페이머스 글레이즈드',img:'food02_01.png' ,price:3500, category:2},
         {id:14, name:'플레인스콘',img:'food02_02.png' ,price:3700, category:2},
@@ -66,7 +66,7 @@ export default function TableOrderApp(){
             orderCartCopy[index].quantity+=1;
             setOrderCart(orderCartCopy);
         }else{
-            orderCartCopy.unshift({id:pick.id, name:pick.name, price:pick.price, quantity:1});
+            orderCartCopy.push({id:pick.id, name:pick.name, price:pick.price, quantity:1});
             setOrderCart(orderCartCopy);
         }
         console.log(orderCart);
@@ -82,6 +82,7 @@ export default function TableOrderApp(){
         }else{
             orderCartCopy[index].quantity+=1;
             setOrderCart(orderCartCopy);
+            total();
         }
     }
     const minus=(index)=>{
@@ -91,7 +92,42 @@ export default function TableOrderApp(){
         }else{
             orderCartCopy[index].quantity-=1;
             setOrderCart(orderCartCopy);
+            total();
         }
+    }
+
+    // 총 합계 금액 계산
+    const [totalPrice,setTotalPrice]=useState(0);
+
+    
+    const total=()=>{
+        let orderCartCopy=[...orderCart];
+        let sumPrice=0;
+        for(let i=0;i<orderCartCopy.length;i++){
+            sumPrice += orderCartCopy[i].price * orderCartCopy[i].quantity;
+        }
+        setTotalPrice(sumPrice.toLocaleString());
+        
+    }
+        // console.log('총 금액: '+totalPrice);
+
+    // 주문내역 클릭(두개의 함수 동시 실행 함수)
+    const orderClick=()=>{
+        setShowCart(true);
+        total();
+    }
+
+    // 주문 취소 X 버튼
+    const delOrder=(index)=>{
+        let orderCartCopy=[...orderCart];
+        orderCartCopy.splice(index,1);
+        setOrderCart(orderCartCopy);
+        total();
+        console.log('삭제된 인덱스 뭐야?',orderCartCopy)
+    }
+    const delOrder01=(index)=>{
+        delOrder(index);
+        total();
     }
 
     return(
@@ -99,20 +135,29 @@ export default function TableOrderApp(){
             <div className='menuTab'>
                 <ul>
                     {/* <li>베스트 10</li> */}
-                    <li onClick={()=>setMenuTab(1)}>샐러드/포케</li>
-                    <li onClick={()=>setMenuTab(2)}>디저트</li>
-                    <li onClick={()=>setMenuTab(3)}>커피/음료</li>
+                    <li style={{backgroundColor: menuTab === 1?'rgb(133, 184, 74)':null, 
+                    color: menuTab === 1?'#fff':null}} 
+                    onClick={()=>setMenuTab(1)}>샐러드/포케</li>
+                    <li style={{backgroundColor: menuTab === 2?'rgb(133, 184, 74)':null,
+                    color: menuTab === 2?'#fff':null}} 
+                    onClick={()=>setMenuTab(2)}>디저트</li>
+                    <li style={{backgroundColor: menuTab === 3?'rgb(133, 184, 74)':null,
+                    color: menuTab === 3?'#fff':null}} 
+                    onClick={()=>setMenuTab(3)}>커피/음료</li>
                 </ul>
-                <button type='button' onClick={()=>setShowCart(true)}>주문내역</button>
+                {/* <button type='button' onClick={()=>{setShowCart(true);total}}>주문내역</button> */}
+                <button type='button' onClick={orderClick}>주문내역</button>
             </div>
             {/* 주문내역 모달창 */}
-            {showCart && <CartModal orderCart={orderCart} setShowCart={setShowCart} plus={plus} minus={minus}/>}
+            {showCart && <CartModal orderCart={orderCart} setShowCart={setShowCart} 
+            plus={plus} minus={minus} totalPrice={totalPrice} delOrder={delOrder} delOrder01={delOrder01}/>}
 
 
             {/* 메뉴 리스트 */}
             <div className='Menu'>
                 <ul className='menulist'
-                style={{display:'flex'}}>
+                style={{display:'flex', flexWrap:'wrap', padding:0, 
+                justifyContent:'center'}}>
                     {filterImg.map((menuItem)=>(
                         <MenuList 
                             tableMenu={tableMenu}
