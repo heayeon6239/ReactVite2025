@@ -35,7 +35,8 @@ import image01 from '../public/images/image01.png'
 // import Changeimg04 from './stateUI/Changeimg04'
 // import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
 // import Eff03 from './Effect/Eff03'
-import Eff09 from './Effect/Eff09'
+// import Eff09 from './Effect/Eff09'
+import Ex11 from './Effect/Ex11'
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -243,7 +244,8 @@ const btnClick=()=>{
         {/* <Changeimg04/> */}
         {/* <TableOrderApp/> */}
         {/* <Eff03/> */}
-        <Eff09/>
+        {/* <Eff09/> */}
+        <Ex11/>
     </>
   )
 }

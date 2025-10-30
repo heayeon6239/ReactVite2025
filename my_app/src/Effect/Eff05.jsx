@@ -6,7 +6,7 @@ export default function Eff05(){
 
     useEffect(()=>{
         const timer = setInterval(()=>setTime(time+1),1000)
-        // cleanUp 함수 필요
+        // cleanUp 함수 필요 (안쓰면 1부터 time까지 다 돌아버림)
         return()=>clearInterval(timer)
     })
     // 의존성 배열을 사용 X -> 무한 반복 시키기 위해

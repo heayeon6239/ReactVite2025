@@ -6,21 +6,18 @@ export default function Eff08(){
     const [reload,setReload]=useState(false);
     // isLoad : 데이터를 불러오는 중인지 여부를 확인할 상태 변수
     const [isload,setIsload]=useState(false);
+    // 사용자의 목록을 담을 변수
+    const[user,setUser]=useState([]);
 
-            // 사용자의 목록을 담을 변수
-            const[user,setUser]=useState([]);
-
-            useEffect(()=>{
-                setIsload(true) // 로딩 시작 상태 변경
-                setTimeout(()=>{
-                    fetch("https://jsonplaceholder.typicode.com/users")
-                    .then(res => res.json())
-                    .then(data => {setUser(data) ; setIsload(false)}) 
-                    // 가져온 데이터를 user 상태에 저장
-                },3000);
-                
-            },[reload]) // reload 값이 바뀔때마다 useEffect 재실행
-                        // 다시말해, reload가 변경될 때마다 데이터를 다시 불러옴
+        useEffect(()=>{
+            setIsload(true) // 로딩 시작 상태 변경
+            setTimeout(()=>{
+                fetch("https://jsonplaceholder.typicode.com/users")
+                .then(res => res.json())
+                .then(data => {setUser(data) ; setIsload(false)})  // 가져온 데이터를 user 상태에 저장
+            },3000);    
+        },[reload]) // reload 값이 바뀔때마다 useEffect 재실행
+                    // 다시말해, reload가 변경될 때마다 데이터를 다시 불러옴
 
             return(
                 <>
