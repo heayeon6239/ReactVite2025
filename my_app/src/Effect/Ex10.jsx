@@ -19,9 +19,9 @@ export default function Ex10(){
         // 검색어가 없으면 전체 사용자가 표시 되도록 예외처리
         // 스페이스바로 인한 공백이 입력된 경우에도 users목록이 출력되도록 예외처리
         // trim() =>왼쪽, 오른쪽 공백제거
-        if(!findName.trim()){ // findName.trim() === false -> true
+        if(!findName.trim()){ 
             setFindUser(users);
-            // return
+            return
         }
 
         const nameFilter=users.filter((userItem)=>userItem.name.toUpperCase().includes(findName.toUpperCase()));
