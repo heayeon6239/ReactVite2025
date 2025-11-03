@@ -1,0 +1,39 @@
+*{
+    list-style: none;
+    /* color: blue; */
+    margin: 0;
+    padding: 0;
+}
+.listAll{
+    width: 1000px;
+    /* border: 1px solid red; */
+    /* margin: 0 auto; */
+}
+.listAll .list{
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+    justify-content: flex-start;
+    /* margin-left: 20px; */
+}
+.listAll .list li{
+    width: 230px;
+    height: 350px;
+    border: 1px solid #b1b1b1;
+    align-content: center;
+    border-radius: 5px;
+}
+.listAll .list .list_li a img{
+    width: 200px;
+    height: 200px;
+}
+
+/* detail part */
+.detail img{
+    width: 500px;
+    height: 500px;
+}
+.detail p{
+    padding: 15px 0;
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import {BrowserRouter,Routes, Route} from 'react-router-dom'
 // 00 src -> assets -> 이미지 파일은 반드시 import함
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -7,7 +8,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 // 00 이미지를 하나하나 import해서 개별로 가져올 수 있음
 // public폴더의 이미지 파일은 import하지 않아도 사용 가능
-import image01 from '../public/images/image01.png'
+// import image01 from '../public/images/image01.png'
 // import Test from './stateComponents/test'
 // import Exstate13 from './stateComponents/Ex13'
 // import Exstate14 from './stateComponents/Ex14'
@@ -41,7 +42,19 @@ import image01 from '../public/images/image01.png'
 // import ExJ01 from './JSON/ExJ01'
 // import ExJ05 from './JSON/ExJ05'
 // import ProductApp from './JSON/ExJ06/productApp'
-import Rate from './JSON/rate'
+// import Rate from './JSON/rate'
+// import Home from './Pages/home'
+// import About from './Pages/about'
+// import ProdApp from './Pages/ProdApp'
+// import ProDetail from './Pages/ProDetail's
+// import FakeStore from './Pages/Fake/FakeStore'
+// import FakeStoreDetail from './Pages/Fake/FakeStoreDetail'
+// import useProduct from './Pages/Fake/Data'
+
+import useRecipeData from './Pages/Recipes/RecipData'
+import RecipeList from './Pages/Recipes/RecipeList'
+import RecipeDetail from './Pages/Recipes/RecipeDetail'
+
 
 // -- 컴포넌트의 기본구조 --
 // function UserCard(){
@@ -101,18 +114,18 @@ function App() {
 const name='홍길동'; 
 
  // true(===1), flase(===0) => 논리값 (문자값 ' '이 아님) 
-const isLoggin=true;
+// const isLoggin=true;
 
-const fruits=['사과','오렌지','바나나'];
+// const fruits=['사과','오렌지','바나나'];
 
-const user={name:'김철수', age:25, email:'kim@naver.com'}
+// const user={name:'김철수', age:25, email:'kim@naver.com'}
 
 // name -> key, '김철수' -> value 
 // key.value -> name.'김철수'
 
-const btnClick=()=>{
-  console.log('버튼 클릭');
-}
+// const btnClick=()=>{
+//   console.log('버튼 클릭');
+// }
 
 // const products = [
 //                     { id: 1, name: "노트북", price: 1200000 },
@@ -120,6 +133,9 @@ const btnClick=()=>{
 //                     { id: 3, name: "키보드", price: 80000 }
 //                   ];
 
+// 내가 만든 useProduct()커스텀 훅 호출
+// const data=useProduct();
+const recipeData=useRecipeData();
   return (
     // 00 <></> -> (빈태그)프래그넌트,
     //             리액트는 HTML작성시 반드시 부모태그가 하나만 존재해야하므로
@@ -255,7 +271,14 @@ const btnClick=()=>{
         {/* <ExJ01/> */}
         {/* <ExJ05/> */}
         {/* <ProductApp/> */}
-        <Rate/>
+        {/* <Rate/> */}
+        {/* <BrowserRouter> */}
+          <Routes>
+            <Route path='/' element={<RecipeList data={recipeData}/>}/>
+            <Route path='detail/:id' element={<RecipeDetail data={recipeData}/>}/>
+          </Routes>
+        {/* </BrowserRouter> */}
+        {/* 커스텀 훅이든 이미 존재하는 훅이든 JSX안으로 가져올 수 없다. */}
     </>
   )
 }

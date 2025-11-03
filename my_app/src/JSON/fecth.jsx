@@ -22,6 +22,9 @@ export default function Exfecth(){
             // res.ok = true
             if(!res.ok){
                 // HTTP상태의 코드를 확인
+                // 'HTTP error! status:', {res.status} -> 인수가 2개 ( 1 , 2 )
+                //  => throw new Error 는 앞에 인수 하나만 인식함
+                //     `` 을 사용하여 작성하는게 옳음 !!!
                 throw new Error(`HTTP error! status: ${res.status}`)
             }
             // JSON 파싱(해석)

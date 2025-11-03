@@ -1,40 +1,18 @@
 import {useEffect,useState} from 'react';
+import { Link } from 'react-router-dom';
 
 // 평점별
 // 카테고리 별
 
-export default function Rate(){
+export default function FakeStore({data}){
+    // 01. props => ffff(props)
 
-    const[data,setData]=useState([]);
+    // 02. 구조 분해 할당 => ffff({data})
+    //     일일 변수로 대입해서 할당을 다시 함
+    //     반드시 구조분해할당은 중괄호를 꼭 써줘야함 !!!
+
     const[tab,setTab]=useState("men's clothing");
     const[rate,setRate]=useState(false);
-
-    useEffect(()=>{
-
-        console.log('데이터 요청 시작');
-        fetch('https://fakestoreapi.com/products')
-        .then((res)=>{
-            return res.json();
-        })
-        .then((data)=>{
-            // console.log('json으로 받아온 데이터',data) => [object, object]
-            // 배열 또는 객체{}는 문자열로 바꾸어 출력하려고 함
-
-            // .toString() -> 자바스크립트가 가지고 있는 매서드 객체임
-            // Array나 Object의 기본 toString()은 사람이 알아볼 수 없는
-            // => [object, object]형태로 호출함
-            //    문자열 변환 방식의 한계
-
-            // 고로 여기서는 console.log( 인수 1 , 인수2 )
-            console.log('json으로 받아온 데이터',data);
-            setData(data)
-        })
-        .finally(()=>{
-            console.log('요청 완료')
-        })
-
-    },[]);
-
   
     
 
@@ -82,11 +60,13 @@ export default function Rate(){
                     <li key={item.id}
                     style={{width:'200px',height:'400px'}}>
                         {/* 이미지 */}
-                        <img src={item.image}
-                        style={{width:'200px',height:'250px'}}/>
-                        {/* 제품 타이틀 */}
-                        <p style={{height:'100px',display:'flex',alignItems:'center',justifyContent:'center'}}>{item.title}</p>
-                        <span>{item.price} $ / ★ {item.rating.rate}  </span>
+                        <Link to={`/detail/${item.id}`}>
+                            <img src={item.image}
+                            style={{width:'200px',height:'250px'}}/>
+                            {/* 제품 타이틀 */}
+                            <p style={{height:'100px',display:'flex',alignItems:'center',justifyContent:'center'}}>{item.title}</p>
+                            <span>{item.price} $ / ★ {item.rating.rate}  </span>
+                        </Link>
                     </li>
                 ))}
             </ul>
