@@ -1,0 +1,35 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import {BrowserRouter,Routes, Route} from 'react-router'
+import Header from './common/Header/Header'
+import Footer from './common/Footer/Footer'
+import useFoodData from './pages/Food/FoodData'
+import FoodList from './pages/Food/FoodList'
+import Main from './pages/Food/Home/main'
+import FoodCook from './pages/Food/FoodCook'
+import FoodDetail from './pages/FoodDetail'
+
+function App() {
+  
+const foodData = useFoodData();
+
+  return (
+    <>
+      <BrowserRouter>
+      <Header/>
+        <Routes>
+          <Route path='/' element={<Main/>}></Route>
+          <Route path='/new' element={<FoodList data={foodData}/>}></Route>
+          <Route path='/Cook' element={<FoodCook data={foodData}/>}></Route>
+          <Route path='/new/datail/:id' element={<FoodDetail data={foodData}/>}></Route>
+        </Routes>
+        
+      <Footer/>
+      </BrowserRouter>
+    </>
+  )
+}
+
+export default App

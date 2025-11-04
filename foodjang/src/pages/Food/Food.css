@@ -1,0 +1,153 @@
+*{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.FoodList{
+    padding-top: 50px;
+    width: 1060px;
+}
+.FoodList > p{
+    text-align: left;
+    padding: 9px 10px;
+}
+.FoodList .tab{
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 9px 10px;
+    border-left: none;
+    border-right: none;
+    gap: 20px;
+}
+.FoodList .tab > p{
+    cursor: pointer;
+}
+.FoodList .tab > p{
+    /* color: #333;
+    font-weight: 700; */
+}
+.FoodList ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1060px;
+    padding-top: 50px;
+}
+.FoodList ul li{
+    width: 353px;
+    height: 427px;
+}
+.FoodList ul li img{
+    width: 300px;
+    height: 300px;
+}
+.FoodList ul li p{
+    text-align: left;
+    margin-left: 35px;
+    font-size: 13px;
+}
+.FoodList ul li .name{
+    margin: 7px 0;
+    text-align: left;
+    margin-left: 35px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Cook Part */
+.FoodCook{
+    padding-top: 50px;
+}
+.FoodCook .tabMenu{
+    /* border: 1px solid green; */
+    position: relative;
+    padding-top: 50px;
+    width: 1060px;
+    
+    /* height: 500px; */
+}
+.FoodCook .tabMenu > p{
+    font-size: 16px;
+    width: 120px;
+    background-color: rgb(228, 228, 228);
+    display: inline-block;
+    padding: 13px 30px;
+    /* border-radius: 5px; */
+    position: absolute;
+    left:0;
+    top: 0;
+    margin-left: 20px;
+}
+.FoodCook .tabMenu .hover{
+    position: absolute;
+    left:200px;
+    top: 0;
+    width: 300px;
+    border: 1px solid rgb(223, 223, 223);
+    background-color: rgb(249, 249, 249);
+    padding: 11px 30px;
+    border-radius: 0 20px 20px 0;
+}
+.FoodCook .tabMenu .hover p{
+    /* left: 100px;
+    top: 100px;
+    position: absolute; */
+    font-size: 16px;
+    display: inline-block;
+    padding: 0 26px;
+    cursor: pointer;
+}
+.FoodCook ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1060px;
+    padding-top: 30px;
+}
+.FoodCook ul li{
+    width: 353px;
+    height: 427px;
+}
+.FoodCook ul li img{
+    width: 300px;
+    height: 300px;
+}
+.FoodCook ul li p{
+    text-align: left;
+    margin-left: 35px;
+    font-size: 13px;
+}
+.FoodCook ul li .name{
+    margin: 7px 0;
+    text-align: left;
+    margin-left: 35px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* detail Part */
+
+.detail{
+    display: flex;
+    width: 1060px;
+    padding: 50px 20px;
+}
+.detail img{
+    width: 500px;
+}
+.detail .text{
+    text-align: left;
+    padding: 20px 30px;
+}
+.detail .text p{
+    padding-bottom: 5px;
+    font-size: 13px;
+}
+.detail .text h2{
+    padding-bottom: 15px;
+}
+.detail .text h4{
+    padding-top: 15px;
+}
+.detail .text > ul > li{
+    font-size: 14px;
+}

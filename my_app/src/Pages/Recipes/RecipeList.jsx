@@ -18,10 +18,33 @@ export default function RecipeList({data}){
     console.log(categoryTab);
 
     // 좋아요
-    const likeArr=[];
-    const [like,setLike]=useState(0);
-    const addLike=()=>{
-        setLike(like+1);
+    // like = {1:0, 2:0, 3:0 ....}
+    // id 음식명 좋아요 ( ex : 1 된장찌개 0 / 2 김치찌개 0 / 3 피자 0 ...)
+    // like 상태변수 ( JSON 자체가 오브젝트이기 때문에 useState(0)처럼 다같이 초기화 할 수 없음 )
+    
+    // 오브젝트 0을 초기화하는 초기값 변수
+    const defaultLike={}; // 빈 배열 또는 빈 오브젝트는 undefined될 가능성 높음
+
+    if(data.length > 0){
+        for(let i=0; i<data.length;i++){
+            const recip=data[i]
+            // defaultLike[1]=0 -> {id:1, 좋아요 :0}
+            defaultLike[recip.id]=0 // 각 레시피 id별로 초기값 0으로 세팅
+        }
+    }
+    console.log(defaultLike)
+    const [like,setLike]=useState(defaultLike);
+    // useState({id:1, 0, id:2, 0})
+    
+
+    // 좋아요 버튼 클릭시 좋아요 1씩 증가하는 핸들러 작성
+    const addLike=(id)=>{
+        // 배열, 오브젝트는 힙의 어드레스 번지 주소가 같으면 리랜더링을 하지 않기 때문에 
+        // 반드시 얕은 복사 필요 !
+        const likeCopy={...like}
+        // 현재 undefined인 경우 => undefined +1 => NaN
+        likeCopy[id] = (likeCopy[id] !== undefined ? likeCopy[id]:0) + 1
+        setLike(likeCopy);
     }
 
     return(
@@ -68,7 +91,7 @@ export default function RecipeList({data}){
                                     <p>{item.cuisine}</p>
                                     <p>{item.rating}</p>
                                 </Link>
-                                <button type="button" onClick={()=>addLike(index)}>🤍 좋아요 {like}</button>
+                                <button type="button" onClick={()=>addLike(item.id)}>🤍 좋아요 {like[item.id]}</button>
                             </li>
                             
                         </div>
