@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import MenuList from '../TableOrder/MenuList'
 import CartModal from './CartModal';
 import '../TableOrder/tableOrder.css'
@@ -69,8 +69,10 @@ export default function TableOrderApp(){
             orderCartCopy.push({id:pick.id, name:pick.name, price:pick.price, quantity:1});
             setOrderCart(orderCartCopy);
         }
-        console.log(orderCart);
+
+        
     }
+    console.log(orderCart);
 
     // 모달 열림/닫힘
     const [showCart,setShowCart]=useState(false);
@@ -82,7 +84,7 @@ export default function TableOrderApp(){
         }else{
             orderCartCopy[index].quantity+=1;
             setOrderCart(orderCartCopy);
-            total();
+            // total();
         }
     }
     const minus=(index)=>{
@@ -92,7 +94,7 @@ export default function TableOrderApp(){
         }else{
             orderCartCopy[index].quantity-=1;
             setOrderCart(orderCartCopy);
-            total();
+            // total();
         }
     }
 
@@ -100,21 +102,21 @@ export default function TableOrderApp(){
     const [totalPrice,setTotalPrice]=useState(0);
 
     
-    const total=()=>{
-        let orderCartCopy=[...orderCart];
-        let sumPrice=0;
-        for(let i=0;i<orderCartCopy.length;i++){
-            sumPrice += orderCartCopy[i].price * orderCartCopy[i].quantity;
-        }
-        setTotalPrice(sumPrice.toLocaleString());
+    // const total=()=>{
+    //     let orderCartCopy=[...orderCart];
+    //     let sumPrice=0;
+    //     for(let i=0;i<orderCartCopy.length;i++){
+    //         sumPrice += orderCartCopy[i].price * orderCartCopy[i].quantity;
+    //     }
+    //     setTotalPrice(sumPrice.toLocaleString());
         
-    }
+    // }
         // console.log('총 금액: '+totalPrice);
 
     // 주문내역 클릭(두개의 함수 동시 실행 함수)
     const orderClick=()=>{
         setShowCart(true);
-        total();
+        // total();
     }
 
     // 주문 취소 X 버튼
@@ -122,13 +124,20 @@ export default function TableOrderApp(){
         let orderCartCopy=[...orderCart];
         orderCartCopy.splice(index,1);
         setOrderCart(orderCartCopy);
-        total();
+        // total();
         console.log('삭제된 인덱스 뭐야?',orderCartCopy)
+        
     }
-    const delOrder01=(index)=>{
-        delOrder(index);
-        total();
-    }
+    console.log('최종 가격: ',totalPrice);
+
+    useEffect(() => {
+        let total=0;
+        for(let i=0;i<orderCart.length;i++){
+            total += (orderCart[i].price*orderCart[i].quantity)
+        }
+        setTotalPrice(total.toLocaleString())
+    }, [orderCart]);
+    
 
     return(
         <div className='all'>
@@ -145,12 +154,11 @@ export default function TableOrderApp(){
                     color: menuTab === 3?'#fff':null}} 
                     onClick={()=>setMenuTab(3)}>커피/음료</li>
                 </ul>
-                {/* <button type='button' onClick={()=>{setShowCart(true);total}}>주문내역</button> */}
                 <button type='button' onClick={orderClick}>주문내역</button>
             </div>
             {/* 주문내역 모달창 */}
             {showCart && <CartModal orderCart={orderCart} setShowCart={setShowCart} 
-            plus={plus} minus={minus} totalPrice={totalPrice} delOrder={delOrder} delOrder01={delOrder01}/>}
+            plus={plus} minus={minus} totalPrice={totalPrice} delOrder={delOrder} />}
 
 
             {/* 메뉴 리스트 */}

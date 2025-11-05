@@ -20,7 +20,7 @@ export default function CartModal(props){
                                     <button type="button" onClick={()=>props.plus(index)}>
                                         <span>+</span>
                                     </button>
-                                    <button type="button" onClick={props.delOrder01}>
+                                    <button type="button" onClick={() => props.delOrder(index)}>
                                         <span className="del">x</span>
                                     </button>
                                 </div>

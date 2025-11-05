@@ -34,7 +34,7 @@ import './App.css'
 // import Hover01 from './stateUI/hover01'
 // import Hover04 from './stateUI/hover04'
 // import Changeimg04 from './stateUI/Changeimg04'
-// import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
+import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
 // import Eff03 from './Effect/Eff03'
 // import Eff09 from './Effect/Eff09'
 // import Ex11 from './Effect/Ex11'
@@ -51,9 +51,9 @@ import './App.css'
 // import FakeStoreDetail from './Pages/Fake/FakeStoreDetail'
 // import useProduct from './Pages/Fake/Data'
 
-import useRecipeData from './Pages/Recipes/RecipData'
-import RecipeList from './Pages/Recipes/RecipeList'
-import RecipeDetail from './Pages/Recipes/RecipeDetail'
+// import useRecipeData from './Pages/Recipes/RecipData'
+// import RecipeList from './Pages/Recipes/RecipeList'
+// import RecipeDetail from './Pages/Recipes/RecipeDetail'
 
 
 // -- 컴포넌트의 기본구조 --
@@ -135,7 +135,7 @@ const name='홍길동';
 
 // 내가 만든 useProduct()커스텀 훅 호출
 // const data=useProduct();
-const recipeData=useRecipeData();
+// const recipeData=useRecipeData();
   return (
     // 00 <></> -> (빈태그)프래그넌트,
     //             리액트는 HTML작성시 반드시 부모태그가 하나만 존재해야하므로
@@ -263,7 +263,7 @@ const recipeData=useRecipeData();
         {/* <Hover04/> */}
         {/* <Changeimg02/> */}
         {/* <Changeimg04/> */}
-        {/* <TableOrderApp/> */}
+        <TableOrderApp/>
         {/* <Eff03/> */}
         {/* <Eff09/> */}
         {/* <Ex11/> */}
@@ -273,10 +273,10 @@ const recipeData=useRecipeData();
         {/* <ProductApp/> */}
         {/* <Rate/> */}
         {/* <BrowserRouter> */}
-          <Routes>
+          {/* <Routes>
             <Route path='/' element={<RecipeList data={recipeData}/>}/>
             <Route path='detail/:id' element={<RecipeDetail data={recipeData}/>}/>
-          </Routes>
+          </Routes> */}
         {/* </BrowserRouter> */}
         {/* 커스텀 훅이든 이미 존재하는 훅이든 JSX안으로 가져올 수 없다. */}
     </>
