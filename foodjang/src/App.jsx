@@ -10,6 +10,7 @@ import FoodList from './pages/Food/FoodList'
 import Main from './pages/Food/Home/main'
 import FoodCook from './pages/Food/FoodCook'
 import FoodDetail from './pages/FoodDetail'
+import Login from './common/Login/Login'
 
 function App() {
   
@@ -24,6 +25,7 @@ const foodData = useFoodData();
           <Route path='/new' element={<FoodList data={foodData}/>}></Route>
           <Route path='/Cook' element={<FoodCook data={foodData}/>}></Route>
           <Route path='/new/datail/:id' element={<FoodDetail data={foodData}/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
         </Routes>
         
       <Footer/>

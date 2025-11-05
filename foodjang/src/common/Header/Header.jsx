@@ -12,7 +12,7 @@ export default function Header(){
                     <p>+BOOKMARK</p>
                 </div>
                 <div className="right_01">
-                    <span>로그인</span>
+                    <Link to={`/login`}><span>로그인</span></Link>
                     <span>회원가입</span>
                     <span>고객센터</span>
                 </div>
