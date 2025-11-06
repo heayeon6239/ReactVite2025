@@ -1,0 +1,52 @@
+.wishAll{
+    margin: 50px 0;
+    height: 100vh;
+}
+.wishAll .wishlist{
+    margin: 50px 0;
+}
+.wishAll .wishlist .none{
+    margin-top: 200px;
+}
+.wishAll ul li{
+    width: 500px;
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #bababa;
+    margin: 0 auto;
+}
+
+.wishAll .wishlist ul li img{
+    width: 200px;
+    height: 200px;
+}
+.wishAll .wishlist ul li .text p{
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+    margin-left: 20px;
+    /* vertical-align: bottom; */
+    
+    
+}
+.wishAll .wishlist ul li .text .title{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+.wishAll .wishlist ul li span{
+    display: flex;               /* 플렉스 박스 사용 */
+    justify-content: center;     /* 가로 가운데 */
+    align-items: center;         /* 세로 가운데 */
+    width: 30px;                 /* 버튼 크기 지정 */
+    height: 30px;
+    border: none;
+    color: #bababa;
+    cursor: pointer;
+    font-size: 18px;
+}
+.wishAll .wishlist ul li span:hover{
+    color: #555;
+}

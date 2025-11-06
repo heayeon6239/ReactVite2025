@@ -14,7 +14,7 @@ export default function Header(){
                 <div className="right_01">
                     <Link to={`/login`}><span>로그인</span></Link>
                     <span>회원가입</span>
-                    <span>고객센터</span>
+                    <Link to={`/wish`}><span>찜하기</span></Link>
                 </div>
             </div>
             <Link to='/'>

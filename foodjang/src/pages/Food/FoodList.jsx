@@ -2,6 +2,8 @@ import {Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {useState,useEffect} from "react";
 import '../Food/Food.css'
+import { useContext } from "react";
+import { wishContext } from "../../contexts/WishContexts";
 
 export default function FoodList({data}){
 
@@ -32,6 +34,8 @@ export default function FoodList({data}){
         }
     };
     console.log(focus);
+
+    const {addWish,isWish,delWish}=useContext(wishContext);
     
 
     return(
@@ -53,6 +57,9 @@ export default function FoodList({data}){
                                 <p>리뷰: {item.reviewCount} 개</p>
                                 <p>{item.caloriesPerServing} cal</p>
                             </Link>
+                            <button type="button" onClick={()=>isWish(item.id)?delWish(item.id):addWish(item)}>
+                                {isWish(item.id)?'❤ 찜 해제':' 🤍찜하기'}
+                            </button>
                         </li>
                     ))}
                 </ul>
