@@ -14,6 +14,8 @@ import Login from './common/Login/Login'
 import LoginProvider from './common/Login/LoginContent'
 import Wish from './pages/Wish/Wish'
 import WishProvider from './contexts/WishContexts'
+import Home from './common/Login/Home'
+import Join from './pages/Join/Join'
 
 function App() {
   
@@ -21,9 +23,10 @@ const foodData = useFoodData();
 
   return (
     <>
+    <LoginProvider>
       <BrowserRouter>
       <WishProvider>
-        <LoginProvider>
+        
           <Header/>
           <Routes>
             <Route path='/' element={<Main/>}></Route>
@@ -32,13 +35,14 @@ const foodData = useFoodData();
             <Route path='/new/datail/:id' element={<FoodDetail data={foodData}/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/wish' element={<Wish data={foodData}/>}></Route>
+            <Route path='/home' element={<Home/>}></Route>
+            <Route path='/join' element={<Join/>}></Route>
           </Routes>
-        
           <Footer/>
-        </LoginProvider>
+        
       </WishProvider>
-      
       </BrowserRouter>
+    </LoginProvider>
     </>
   )
 }

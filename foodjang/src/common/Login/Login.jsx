@@ -1,35 +1,34 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import { useContext } from "react";
-import { LoginContent } from "./LoginContent";
+import { LoginContext } from "./LoginContent";
 import '../Login/Login.css';
+import {useNavigate} from "react-router-dom";
 
 
 export default function Login(){
 
-    // // 입력한 아이디 담을 변수
-    // const [id,setId]=useState(null);
-    // // 입력한 비밀번호 담을 변수s
-    // const [pw,setPw]=useState(null);
+    const {login}=useContext(LoginContext);
+    
+    const navigate = useNavigate();
 
-    const {setId,setPw,login,id,pw}=useContext(LoginContent);
+    const [id,setId]=useState('');
+    const [pw,setPw]=useState('');
 
-    // // input에서 입력받은 값 담는 변수
-    // const [inputId,setInputId]=useState('');
-    // const [inputPw,setInputPw]=useState('');
 
     // // 아이디/ 비밀번호 핸들러
     const submitHandeler=()=>{
-        if(inputId === '') return alert('아이디를 입력해 주세요.')
-        if(inputPw === '') return alert('비밀번호를 입력해 주세요.')
-
-        setId(inputId);
-        setPw(inputPw);
+        if(id ==='admin' && pw ==='1234'){
+            alert('로그인 성공');
+            login(id);
+            navigate('/home');
+        // }if(id==='' || pw===''){
+        //     alert('id,pw를 입력해 주세요.');
+        }else{
+            alert('id와 pw를 확인해주세요.');
+        }
+        console.log('사용자 이름',login(id))
     }
-    
-
-    // console.log(id);
-    // console.log(pw);
 
     
 
@@ -40,13 +39,14 @@ export default function Login(){
                 <p className="loginTitle">회원 로그인</p>
                 {/* 회원 로그인 */}
                 <div className="logPart">
-                        <form onSubmit={submitHandeler}>
+                        {/* <form onSubmit={submitHandeler}> */}
+                        <div className="log">
                             <div className="inputPart">
-                                <input  className="id" type="text" placeholder="아이디" value={id} onChange={(e)=>setInputId(e.target.value)} />
-                                <input type="text" placeholder="비밀번호" value={pw} onChange={(e)=>setInputPw(e.target.value)} />
+                                <input  className="id" type="text" placeholder="아이디" value={id} onChange={(e)=>setId(e.target.value)} />
+                                <input type="text" placeholder="비밀번호" value={pw} onChange={(e)=>setPw(e.target.value)} />
                             </div>
-                            <button className="logBtn" type="submit">로그인</button>
-                        </form>
+                            <button className="logBtn" type="submit" onClick={submitHandeler}>로그인</button>
+                        </div>
                     <div className="check">
                         <input type="checkbox"  id="idCheck"/>
                         <label for="idCheck">아이디 저장</label>

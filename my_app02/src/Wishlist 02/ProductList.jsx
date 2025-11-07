@@ -12,7 +12,7 @@ const products = [
 
 export default function ProductList(){
 
-    const {addToWishlist,removeFromWishlist,isInWishlist,wishlist}=useContext(wishlistContext);
+    const {addToWishlist,removeFromWishlist,isInWishlist,wishlist,del}=useContext(wishlistContext);
 
     return(
         <div style={{padding:'20px'}}>
@@ -30,6 +30,7 @@ export default function ProductList(){
                 ))}
             </ul>
             <p>현재 찜한 상품 수 : {wishlist.length}개</p>
+            <button type="button" onClick={del}>전체삭제</button>
         </div>
     )
     

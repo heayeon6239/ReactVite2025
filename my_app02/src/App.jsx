@@ -19,14 +19,20 @@ import './App.css'
 // import ProductList from './Wishlist/ProductList'
 // import WishlistPage from './Wishlist/WishlistPage'
 
-import WishlistProvider from './Wishlist 02/WishlistContext'
-import ProductList from './Wishlist 02/ProductList'
-import WishlistPage from './Wishlist 02/WishlistPage'
+// import WishlistProvider from './Wishlist 02/WishlistContext'
+// import ProductList from './Wishlist 02/ProductList'
+// import WishlistPage from './Wishlist 02/WishlistPage'
+
+// import AuthProvider from './LoginExample/Context/AuthContext'
+// import LoginPage from './LoginExample/pages/LoginPage'
+// import HomePage from './LoginExample/pages/HomePage'
+
+import Join from './Addr/Join'
 
 function App() {
 
   // ProductList, WishlistPage를 선택하도록 하기위한 상태변수
-  const [showList,setShowList]=useState(false);
+  // const [showList,setShowList]=useState(false);
   
 
   return (
@@ -51,20 +57,27 @@ function App() {
         </Routes>
       </WishProvider> */}
 
-      <WishlistProvider>
+      {/* <WishlistProvider>
         <header style={{display:'flex',padding:'20px',justifyContent:'center',backgroundColor:'#eee'}}>
-          <h2>찜하기 예제</h2>
+          <h2>찜하기 예제</h2> */}
           {/* 찜목록 보기 <-> 상품 보기 토글 */}
-          <button type='button' onClick={()=>setShowList(!showList)}>
+          {/* <button type='button' onClick={()=>setShowList(!showList)}>
             {showList?'상품 보기':'찜 목록 보기'}
           </button>
-        </header>
+        </header> */}
         {/* showList가 true -> wishListPage, false -> productList*/}
-        {showList?<WishlistPage/>:<ProductList/>}
+        {/* {showList?<WishlistPage/>:<ProductList/>}
         
-      </WishlistProvider>
+      </WishlistProvider> */}
 
-      
+      {/* <AuthProvider>
+        <Routes>
+          <Route path='/' element={<LoginPage/>}/>
+          <Route path='/home' element={<HomePage/>}/>
+        </Routes>
+      </AuthProvider> */}
+
+      <Join/>
 
     </>
   )

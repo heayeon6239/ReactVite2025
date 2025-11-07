@@ -22,21 +22,21 @@
     text-align: left;
     font-size: 18px;
 }
-.loginAll .logPart form{
+.loginAll .logPart .log{
     display: flex;
     margin-top: 15px;
     justify-content: space-between;
 }
-.loginAll .logPart form .inputPart > input{
+.loginAll .logPart .log .inputPart > input{
     display: block;
     width: 290px;
     padding: 15px 15px;
     border-radius: 5px;
 }
-.loginAll .logPart form .inputPart .id{
+.loginAll .logPart .log .inputPart .id{
     margin-bottom: 15px;
 }
-.loginAll .logPart form .logBtn{
+.loginAll .logPart .log .logBtn{
     width: 158px;
     background-color: brown;
 }

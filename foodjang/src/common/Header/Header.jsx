@@ -2,8 +2,12 @@ import { useState } from "react"
 import {Link} from "react-router-dom"
 import '../Header/Header.css'
 // import Main from "../../pages/Food/Home/main"
+import { LoginContext } from "../Login/LoginContent";
+import { useContext } from "react";
 
 export default function Header(){
+
+    const {user}=useContext(LoginContext);
     return(
         <div className="header">
             <p>지금 가입하고 인기상품 혜택가로 받아가세요.</p>
@@ -12,8 +16,8 @@ export default function Header(){
                     <p>+BOOKMARK</p>
                 </div>
                 <div className="right_01">
-                    <Link to={`/login`}><span>로그인</span></Link>
-                    <span>회원가입</span>
+                    <Link to={`/login`}><span>{!user?'로그인':'로그아웃'}</span></Link>
+                    <Link to={'/join'}><span>회원가입</span></Link>
                     <Link to={`/wish`}><span>찜하기</span></Link>
                 </div>
             </div>

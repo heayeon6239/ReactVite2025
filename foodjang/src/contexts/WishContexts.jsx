@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useEffect } from "react";
 import { createContext } from "react";
 import { useState } from "react";
 
@@ -9,7 +10,17 @@ export const wishContext=createContext();
 export default function WishProvider({children}){
 
     // 현재 찜 목록 빈 배열
-    const [wishlist,setWishlist]=useState([]);
+    // const [wishlist,setWishlist]=useState([]);
+
+    // < 로컬 스토리지에 위시리스트 저장 >
+    const [wishlist,setWishlist]=useState(()=>{
+        const saved=localStorage.getItem('wishlist');
+        return saved? JSON.parse(saved):[];
+    });
+
+    useEffect(()=>{
+        localStorage.setItem('wishlist',JSON.stringify(wishlist));
+    },[wishlist]);
 
     // 찜 추가 함수 생성
     const addWish=(product)=>{

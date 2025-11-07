@@ -1,7 +1,7 @@
 // createContext() => 공유 데이터를 저장하는 저장소 생성 함수
 import { createContext } from "react";
 // 상태 변수
-import {useState} from "react";
+import {useState,useEffect} from "react";
 
 
 // 01. 공유 데이터 저장소 생성 (반드시 export) -> 생성자 함수
@@ -12,9 +12,36 @@ export default function WishlistProvider({children}){
 
 
     // (1) 현재 찜 목록 배열 상태변수 정의 (초기값은 빈배열)
-    const [wishlist,setWishlist]=useState([]);
+    // const [wishlist,setWishlist]=useState([]);
 
+    const [wishlist,setWishlist]=useState(()=>{
+        const saved=localStorage.getItem('wishlist');
+        // 저장된 찜 목록이 있으면 복원, 없으면 빈배열
+        return saved? JSON.parse(saved):[]
+    });
+        // -------------------------------------------------------------------------------
+        // 001 - LocalStorage에서 최초 랜더링시 1회만 불러오기 - useEffect이용해서 작성
+        // useEffect(()=>{
+        //     const saved = localStorage.getItem('wishlist')
+        //     if(saved){
+        //         setWishlist(JSON.parse(saved)) // 상태 갱신
+        //     (useEffect에서는 return 방식은 cleanUp함수 작성 방법이므로,
+        //      잘 못 작성하면 삭제됨 -> 그래서 if문을 사용 !!)
+        //     }
+        // },[])
+        
+        // 002 - wishlist가 바뀔때 마다 LocalStorage에 저장
+        useEffect(()=>{
+            localStorage.setItem('wishlist',JSON.stringify(wishlist))
+            //                      key값  ,value값(문자열로 변환시켜)
+        },[wishlist])
 
+        // 003 - localStorage 통으로 삭제
+        const del=()=>{
+            setWishlist([]); // 실제 UI에서도 반영됨
+            localStorage.removeItem('wishlist');
+        }
+        // -------------------------------------------------------------------------------
     // (2) 찜 추가 함수 생성 ( 조건 - 이미 같은 id를 가진 상품이 존재하면 중복 추가 X)
     const addToWishlist=(product)=>{
         // - 중복을 피하기위해 같은 id가 존재하는지 유무
@@ -54,7 +81,7 @@ export default function WishlistProvider({children}){
     }
 
     return(
-        <wishlistContext.Provider value={{addToWishlist,removeFromWishlist,isInWishlist,wishlist}}>
+        <wishlistContext.Provider value={{addToWishlist,removeFromWishlist,isInWishlist,wishlist,del}}>
             {children}
         </wishlistContext.Provider>
     )
