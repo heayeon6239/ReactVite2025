@@ -4,52 +4,55 @@
     margin: 0;
     font-family: sans-serif;
 }
-.foot{
+.Foot{
     position: relative;
     width: 100%;
 }
-.Footer{
+.Foot .Footer{
     position: absolute;
+    width: 100%;
 }
-.Footer .footer01{
-    width: 1060px;
+.Foot .Footer .footer01{
+    /* width: 1060px; */
     display: flex;
     justify-content: space-between;
     border: 1px solid lightgray;
+    border-left: none;
+    border-right: none;
     padding: 15px 0;
 }
-.Footer .footer01 .left_01 span{
+.Foot .Footer .footer01 .left_01 span{
     display: inline-block;
     margin: 0 15px;
     font-size: 14px;
 }
-.Footer .footer01 .right_01 span{
+.Foot .Footer .footer01 .right_01 span{
     display: inline-block;
     margin: 0 15px;
     font-size: 14px;
 }
 
-.Footer .footer02{
+.Foot .Footer .footer02{
     display: flex;
     padding: 30px 0;
 }
-.Footer .footer02 .left_02{
+.Foot .Footer .footer02 .left_02{
     width: 247px;
     text-align: left;
 }
-.Footer .footer02 .left_02 p{
+.Foot .Footer .footer02 .left_02 p{
     font-size: 12px;
 }
-.Footer .footer02 .right_02 .top{
+.Foot .Footer .footer02 .right_02 .top{
     display: flex;
     width: 700px;
 }
-.Footer .footer02 .right_02 .top .top_right p{
+.Foot .Footer .footer02 .right_02 .top .top_right p{
     font-size: 12px;
     text-align: left;
     padding-left: 20px;
 }
-.Footer .footer02 .right_02 p{
+.Foot .Footer .footer02 .right_02 p{
     font-size: 12px;
     text-align: left;
 }

@@ -7,6 +7,15 @@ import { useContext } from "react";
 
 export default function Header(){
 
+    // const [focus,setFocus]=useState(false);
+
+    // const click=()=>{
+    //     setFocus(!focus);
+    // }
+
+    // const focusStyle= focus ?
+    //     {fontWeight: 700, color: '#222'}:{};
+
     const {user}=useContext(LoginContext);
     return(
         <div className="header">
@@ -25,17 +34,17 @@ export default function Header(){
                 <img src="/image/logo.gif" alt="로고"/>
             </Link>
             <div className="menu">
-                <span>전체 카테고리</span>
+                <span >전체 카테고리</span>
                 <Link to={`/new`}>
-                    <span>신상품</span>
+                    <span >신상품</span>
                 </Link>
                 <Link to={'/cook'}>
-                    <span>요리 난이도 별 상품</span>
+                    <span >요리 난이도 별 상품</span>
                 </Link>
                 <span>알뜰쇼핑</span>
-                <span>선물세트</span>
-                <span>이벤트</span>
-                <span>스토리</span>
+                <span >선물세트</span>
+                <span >이벤트</span>
+                <span >스토리</span>
             </div>
             <div className="section">
                 {/* <Main/> */}

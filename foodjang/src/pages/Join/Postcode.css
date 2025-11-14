@@ -10,45 +10,62 @@
     width: 100%;
     height: 100vh;
 }
-.address .postcode{
+/* .address .mid{
+    width: 1060px;
+    margin: 0;
+} */
+.address .mid .postcode{
     width: 520px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
 }
-.address .postcode #post{
+.address .mid > input::placeholder{
+    color: #b1b1b1;
+    padding-left: 15px;
+}
+.address .mid > input:focus{
+    outline: none;
+}
+.address .mid .postcode #post{
     width: 237px;
     margin-left: 52px;
     padding-left: 15px;
     border: 1px solid lightgray;
     border-radius: 5px;
 }
-.address #userAddress{
+.address .mid .postcode #post::placeholder{
+    color: #b1b1b1;
+}
+.address .mid .postcode #post:focus{
+    outline: none;
+}
+.address .mid #userAddress{
     width: 192px;
     height: 50px;
     border: 1px solid lightgray;
     border-radius: 5px;
     margin-left: 115px;
 }
-.address #detailAddress{
+.address .mid #detailAddress{
     width: 192px;
     height: 50px;
     border: 1px solid lightgray;
     border-radius: 5px;
     margin-left: 15px;
 }
-.address .postcode p{
+.address .mid .postcode p{
     width: 50px;
     line-height: 50px;
     text-align: left;
 }
-.address .postcode button{
+.address .mid .postcode button{
     height: 50px;
     background-color: rgb(207, 207, 207);
     border-radius: 5px;
 }
-.address .postcode button:hover{
+.address .mid .postcode button:hover{
     background-color: rgb(175, 175, 175);
 }
 
@@ -58,12 +75,18 @@
     width: 100%;
     height: 100vh;
     z-index: 1;
-    top: 0;
+    top: -493px;
 }
 .address .modalOverlay .modal{
     position: absolute;
-    width: 700px;
-    height: 100vh;
+    /* width: 700px; */
+    /* height: 100vh; */
     z-index: 10;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.address .modalOverlay button{
+    position: absolute;
+    top: 220px;
+    right: 10px;
 }

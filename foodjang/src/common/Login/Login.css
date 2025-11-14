@@ -4,19 +4,22 @@
     margin: 0;
     font-family: sans-serif;
 }
-.title{
+
+.title{display: inline-block;
+    margin: 0 auto;
+    width: 602px;
     font-size: 30px;
     margin-top: 60px;
     margin-bottom: 20px;
-    margin-left: 229px;
     text-align: left;
 }
 .loginAll{
     width: 500px;
-    height: 720px;
+    height: 400px;
     margin: 0 auto;
     border: 1px solid lightgray;
     padding: 50px;
+    margin-bottom: 80px;
 }
 .loginAll .loginTitle{
     text-align: left;
@@ -32,21 +35,44 @@
     width: 290px;
     padding: 15px 15px;
     border-radius: 5px;
+    border: 1px solid lightgray;
+}
+.loginAll .logPart .log .inputPart > input:focus{
+    outline: none;
 }
 .loginAll .logPart .log .inputPart .id{
     margin-bottom: 15px;
 }
 .loginAll .logPart .log .logBtn{
     width: 158px;
-    background-color: brown;
+    background-color: rgb(207, 207, 207);
+}
+.loginAll .logPart .log .logBtn:hover{
+    background-color: rgb(175, 175, 175);
 }
 .loginAll .logPart .check{
     display: flex;
     justify-content: left;
+    padding-top: 10px;
 }
 .loginAll > button{
     width: 500px ;
     background-color: rgb(252, 195, 38);
     padding: 13px 0;
-    margin-top: 30px;
+    margin-top: 50px;
+}
+.loginAll .btns{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+.loginAll .btns > button{
+    width: 155px;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 5px;
+    color: rgb(119, 119, 119);
+}
+.loginAll .btns > button:hover{
+    background-color: rgb(238, 238, 238);
 }

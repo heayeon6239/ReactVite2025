@@ -24,16 +24,20 @@ export default function PostCode(){
         setIsOpen(!isOpen);
     }
     console.log(isOpen);
+    
 
     return(
         <div className="address">
-            <div className="postcode">
-                <p>주소</p>
-                <input type="text" value={zipcode} placeholder="우편번호" readOnly name="post" id="post"/>
-                <button type="button" onClick={toggle}>우편번호 검색</button>
+            <div className="mid">
+                <div className="postcode">
+                    <p>주소</p>
+                    <input type="text" value={zipcode} placeholder="우편번호" readOnly name="post" id="post"/>
+                    <button type="button" onClick={toggle}>우편번호 검색</button>
+                </div>
+                <input type="text" value={address} placeholder="도로명주소" name="userAddress" id="userAddress"/>
+                <input type="text" placeholder="상세주소" name="detailAddress" id="detailAddress"/>
             </div>
-            <input type="text" value={address} placeholder="도로명주소" name="userAddress" id="userAddress"/>
-            <input type="text" placeholder="상세주소" name="detailAddress" id="detailAddress"/>
+            
 
             {isOpen &&
                 <div className="modalOverlay">

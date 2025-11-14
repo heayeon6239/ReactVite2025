@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 .header{
-    width: 1060px;
+    /* width: 1060px; */
 }
 .header >p{
     width: 100%;
@@ -31,8 +31,18 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    border-bottom: 1px solid lightgray;
 }
 .header .menu span{
-    color: #333;
+    color: #444;
     font-weight: 500;
+    cursor: pointer;
+}
+.header .menu span:hover{
+    color: #ee4143;
+    font-weight: 600;
+}
+.header .menu span:focus-within {
+  color: #222;
+  font-weight: 800;
 }
