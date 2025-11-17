@@ -2,13 +2,17 @@
 // Redux의 중앙 저장소 역할을 하는 부분
 // Slice를 store에 등록해야 컴포넌트에서 사용할 수 있음
 import { configureStore } from "@reduxjs/toolkit";
-// import countReducer from './ReduxToolkit/counterSlice'
+import countReducer from './ReduxToolkit/counterSlice'
 import cartReducer from './CartEx/CartSlice'
+import productReducer from './store02/productSlice'
+import cartReducer02 from './store02/cartSlice'
 
 export const store = configureStore({
     reducer:{
         // counter는 counterSlice.js 파일의 name:'counter'와 반드시 같아야함
-        // counter:countReducer,
+        counter:countReducer,
         cart:cartReducer,
+        product:productReducer,
+        cart02:cartReducer02,
     }
 })

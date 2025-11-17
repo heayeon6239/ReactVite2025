@@ -1,0 +1,23 @@
+*{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.all{
+    margin: 20px;
+}
+.all ul .list li{
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    align-items: center;
+    padding: 15px;
+    justify-content: space-between;
+}
+.all ul .list li img{
+    width: 200px;
+    height: 200px;
+}
+.all ul .list li button{
+    background-color: rgb(243, 97, 71);
+}

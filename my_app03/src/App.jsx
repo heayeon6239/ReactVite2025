@@ -4,13 +4,24 @@ import viteLogo from '/vite.svg'
 import './App.css'
 // import Counter from './ReduxEx/Counter'
 // import Counter from './ReduxToolkit/counter'
-import Cart from './CartEx/Cart'
+// import Cart from './CartEx/Cart'
+// import Test from './test'
+import Shop from './pages/Section'
+import CartPage from './pages/CartPage'
+import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
 
 function App() {
 
   return (
     <>
-      <Cart/>
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Shop/>}></Route>
+        <Route path='/cartList' element={<CartPage/>}></Route>
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
