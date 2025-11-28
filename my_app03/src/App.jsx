@@ -10,18 +10,22 @@ import Shop from './pages/Section'
 import CartPage from './pages/CartPage'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
+import CookieTest from './cookie/cookieTest'
+import LoginCookie from './cookie/LoginCookie'
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Header/>
       <Routes>
         <Route path='/' element={<Shop/>}></Route>
         <Route path='/cartList' element={<CartPage/>}></Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
+      {/* <CookieTest/> */}
+      <LoginCookie/>
     </>
   )
 }
