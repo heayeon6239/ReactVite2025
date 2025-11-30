@@ -25,13 +25,13 @@ export default function LoginCookie(){
         // 1분뒤 cookie 만료
         if(idCheck){
             const oneMin=new Date(Date.now()+1*60*1000)
-            cookie.set('userId', userId, oneMin, {expires:oneMin,path:'/'})
+            cookie.set('userId', userId, {expires:oneMin,path:'/'})
             
         }else{
             // 아이디 저장 체크가 안되어 있으면 cookie 삭제
             cookie.remove('userId',{path:'/'})
             setUserPw('')
-            setUserId('')
+            // setUserId('')
         }
         alert(`로그인 시도: ${userId}`)
     }

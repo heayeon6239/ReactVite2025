@@ -12,6 +12,7 @@ import { BrowserRouter,Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import CookieTest from './cookie/cookieTest'
 import LoginCookie from './cookie/LoginCookie'
+import Kulry from './cookie/cookie02'
 
 function App() {
 
@@ -25,7 +26,8 @@ function App() {
       </Routes>
     </BrowserRouter> */}
       {/* <CookieTest/> */}
-      <LoginCookie/>
+      {/* <LoginCookie/> */}
+      <Kulry/>
     </>
   )
 }
